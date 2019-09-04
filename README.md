@@ -12,28 +12,28 @@ Singleton design pattern is used when you want to have only one instance of a gi
 ```java
 class Singleton {
 
-    /*
-     * This variable will be used to hold reference of Singleton class.
-     */
-    private static Singleton instance = null;
+	/*
+	 * This variable will be used to hold reference of Singleton class.
+	 */
+	private static Singleton instance = null;
 
-    /*
+	/*
 	 * As private constructor is used so can not create object of this class
 	 * directly. Except by using static method of same class.
 	 */
 	private Singleton() {
-    
-    }
 
-    /*
-	 * This method will be used to get instance of Singleton class. 
-     * Creating an instance of the Singleton class if it does not exist,
-     * and returning it, or simply returning if the instance already exists.
+	}
+
+	/*
+	 * This method will be used to get instance of Singleton class.
+	 * Creating an instance of the Singleton class if it does not exist,
+	 * and returning it, or simply returning if the instance already exists.
 	 */
 	static Singleton getInstance() {
 		if (instance == null) {
 			instance = new Singleton();
-		} 
+		}
 		return instance;
 	}
 
@@ -49,30 +49,30 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 
 public class SingletonTest {
-    /*
-     * Variables that will store instances of the Singleton class.   
-     */
-    private Singleton instanceOne;
-    private Singleton instanceTwo;
+	/*
+	 * Variables that will store instances of the Singleton class.
+	 */
+	private Singleton instanceOne;
+	private Singleton instanceTwo;
 
-    /*
-     * Method performed before the test that initializes the
-     * above variables (instanceOne and instanceTwo).   
-     */
-    @Before
-    public void initialize() {
-        this.instanceOne = Singleton.getInstance();
-        this.instanceTwo = Singleton.getInstance();
-    }
+	/*
+	 * Method performed before the test that initializes the
+	 * above variables (instanceOne and instanceTwo).
+	 */
+	@Before
+	public void initialize() {
+		this.instanceOne = Singleton.getInstance();
+		this.instanceTwo = Singleton.getInstance();
+	}
 
-    /*
-     * Test that verifies that both variables point to the same instance
-     * of the singleton class.
-     */
-    @Test
-    public void testAreTheyTheSameInstance() {
-        assertSame(instanceOne, instanceTwo);
-    }
+	/*
+	 * Test that verifies that both variables point to the same instance
+	 * of the singleton class.
+	 */
+	@Test
+	public void testAreTheyTheSameInstance() {
+		assertSame(instanceOne, instanceTwo);
+	}
 
 }
 ```
